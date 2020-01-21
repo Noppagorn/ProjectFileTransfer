@@ -7,15 +7,28 @@ def Main():
     mySocket = socket.socket()
     mySocket.connect((host, port))
 
-    message = input("USER : ")
+    message = input("MODE : ")
 
-    while message != 'q':
-        mySocket.send(message.encode())
-        data = mySocket.recv(1024).decode()
+    while message != "exit":
+        if message == "upload":
+            mySocket.send(message.encode())
+            print("upload : ")
+            filename = input("File Name : ")
+            file = open(filename, "r", encoding="utf8")
+            data = file.read()
+            file.close()
 
-        print('server: ' + data)
+            combine = filename + "$$" + data
+            mySocket.send(combine.encode())
 
-        message = input("USER : ")
+            #recrive
+            #data = mySocket.recv(1024).decode()
+        elif message == "download":
+            print("download : ")
+        else:
+            print("Invalid input ")
+
+        message = input("MODE : ")
 
     mySocket.close()
 
