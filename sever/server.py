@@ -1,12 +1,24 @@
 import socket
 
 def writeListFile(filename,data):
-    temp = ""
-    for i in data:
-        temp = temp + i + "\n"
     with open(filename,"w",encoding="utf8") as file:
-        file.write(temp)
+        file.write(data)
 
+def splitTOList(string,filename):
+    name = []
+    if (string == ""):
+        name.append(filename)
+    else:
+        name = string.split("\n")
+        if (filename not in name):
+            name.append(filename)
+    return name
+def changeListString(nameList):
+    temp = ""
+    for i in nameList:
+        temp += i + "\n"
+        print(temp)
+    return temp
 def Main():
     host = "127.0.0.1"
     port = 5555
@@ -14,37 +26,39 @@ def Main():
     mySocket = socket.socket()
     mySocket.bind((host, port))
 
-    mySocket.listen(1)
+    mySocket.listen(10)
     while True:
         conn, addr = mySocket.accept()
         print("From: " + str(addr))
-        data = conn.recv(1024).decode()
-        if not data:
+        message = conn.recv(1024).decode()
+        print(message)
+        if not message:
             print("not data")
-        if data == "upload":
-            print("USER : " + str(data))
-            data = conn.recv(1024).decode()
-            print("data",data)
-            filename = data.split("$$")[0]
-            data = data.split("$$")[1]
+        if message == "upload":
+            filename = conn.recv(1024).decode()
+            print("filename : ",filename)
             try:
-                #list = []
                 with open("list.txt","r",encoding="utf8") as file:
-                    list = file.read().split("\n")
-                    print(list)
-                    list.append(filename)
-                    print(list)
-                    writeListFile("list.txt",list)
+                    file.close()
+                    #temp = file.read()
+                    #print(temp)
+                    #listFilename = splitTOList(temp,filename)
+                    #print(listFilename)
+                    #writeListFile("list.txt",changeListString(listFilename))
 
             except:
+                print(Exception)
                 break
-            try:
-                file = open(filename,"w+", encoding="utf8")
-                file.write(data)
-            except:
-                break
-            finally:
-                file.close()
+            f = open(filename,'wb')  # open in binary
+            l = conn.recv(1024)
+            while (l):
+                f.write(l)
+                l = conn.recv(1024)
+            f.close()
+        print("Conn Close")
+        conn.close()
+                #file = open(filename,"w+", encoding="utf8")
+                #file.write(data)
 
         #print("USER : " + str(data))
         #data = str(data).upper()
