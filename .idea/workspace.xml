@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fac063a7-9d14-4448-8979-674d85327e4d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/test1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sever/clientfile.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sever/list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sever/list.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sever/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/sever/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sever/test1.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sever/test2.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,20 +27,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/test1.txt">
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sever/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+            <state relative-caret-position="220">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sever/server.py">
+      <file leaf-file-name="list.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sever/list.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="60">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -63,14 +62,14 @@
       <list>
         <option value="$PROJECT_DIR$/sever/testDown.txt" />
         <option value="$PROJECT_DIR$/client/test2.txt" />
-        <option value="$PROJECT_DIR$/sever/list.txt" />
         <option value="$PROJECT_DIR$/client/test1.txt" />
         <option value="$PROJECT_DIR$/client/client.py" />
+        <option value="$PROJECT_DIR$/sever/list.txt" />
         <option value="$PROJECT_DIR$/sever/server.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="556" />
     <option name="y" value="1" />
     <option name="width" value="1313" />
@@ -183,15 +182,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="395" y="0" width="875" height="687" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22880372" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15378611" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3298969" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34494773" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4089347" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -213,7 +211,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/sever/server.py</url>
-          <line>77</line>
+          <line>64</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -274,9 +272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sever/list.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/test2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -303,8 +298,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sever/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="220">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sever/list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

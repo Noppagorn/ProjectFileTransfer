@@ -12,10 +12,14 @@ def splitTOList(string,filename):
         name = string.split("\n")
         if (filename not in name):
             name.append(filename)
+    #name = name.remove('')
     return name
 def changeListString(nameList):
     temp = ""
     for i in nameList:
+        if (i == ''):
+            continue
+        i = i.replace("\n","")
         temp += i + "\n"
         print(temp)
     return temp
@@ -37,18 +41,14 @@ def Main():
         if message == "upload":
             filename = conn.recv(1024).decode()
             print("filename : ",filename)
-            try:
-                with open("list.txt","r",encoding="utf8") as file:
-                    file.close()
-                    #temp = file.read()
-                    #print(temp)
-                    #listFilename = splitTOList(temp,filename)
-                    #print(listFilename)
-                    #writeListFile("list.txt",changeListString(listFilename))
+            with open("list.txt","r",encoding="utf8") as file:
+                #file.close()
+                temp = file.read()
+                #print(temp)
+                listFilename = splitTOList(temp,filename)
+                print(listFilename)
+                writeListFile("list.txt",changeListString(listFilename))
 
-            except:
-                print(Exception)
-                break
             f = open(filename,'wb')  # open in binary
             l = conn.recv(1024)
             while (l):
@@ -57,17 +57,6 @@ def Main():
             f.close()
         print("Conn Close")
         conn.close()
-                #file = open(filename,"w+", encoding="utf8")
-                #file.write(data)
-
-        #print("USER : " + str(data))
-        #data = str(data).upper()
-        #file = open("testDown.txt", "r", encoding="utf8")
-        #data = file.read()
-        #file.close()
-        #print("sending : " + str(data))
-
-        #conn.send(data.encode())
 
     conn.close()
 
