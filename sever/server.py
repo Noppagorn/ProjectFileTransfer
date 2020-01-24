@@ -37,29 +37,39 @@ def Main():
         message = conn.recv(1024).decode()
         print(message)
         if not message:
-            print("not data")
+            print("Invalid connection")
         if message == "upload":
             filename = conn.recv(1024).decode()
             print("filename : ",filename)
             with open("list.txt","r",encoding="utf8") as file:
-                #file.close()
                 temp = file.read()
-                #print(temp)
                 listFilename = splitTOList(temp,filename)
                 print(listFilename)
                 writeListFile("list.txt",changeListString(listFilename))
 
-            f = open(filename,'wb')  # open in binary
-            l = conn.recv(1024)
-            while (l):
-                f.write(l)
-                l = conn.recv(1024)
-            f.close()
+            file = open(filename,'wb')  # open in binary
+            byte_file = conn.recv(1024)
+            while (byte_file):
+                file.write(byte_file)
+                byte_file = conn.recv(1024)
+            file.close()
+
+        elif message == "download":
+            filename = conn.recv(1024).decode()
+            file = open(filename, "rb")
+            byte_file = file.read(1024)
+            while (byte_file):
+                conn.send(byte_file)
+                byte_file = file.read(1024)
+            file.close()
+        elif message == "lookup":
+            print("look up list file")
+            file = open("list.txt", "r")
+            string_file = file.read()
+            conn.send(string_file.encode())
+            file.close()
         print("Conn Close")
         conn.close()
-
-    conn.close()
-
 
 if __name__ == '__main__':
     Main()

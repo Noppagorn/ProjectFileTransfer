@@ -28,6 +28,29 @@ def Main():
             #data = mySocket.recv(1024).decode()
         elif message == "download":
             print("download : ")
+            mySocket = socket.socket()
+            mySocket.connect((host, port))
+            mySocket.send(message.encode())
+            filename = input("File Name : ")
+            # send file name
+            mySocket.send(filename.encode())
+
+            file = open(filename, "wb")
+            byte_file = mySocket.recv(1024)
+            while (byte_file):
+                file.write(byte_file)
+                byte_file = mySocket.recv(1024)
+            file.close()
+            mySocket.close()
+        elif message == "lookup":
+            mySocket = socket.socket()
+            mySocket.connect((host, port))
+            mySocket.send(message.encode())
+
+            listFile = mySocket.recv(1024)
+            print(listFile.decode())
+
+            mySocket.close()
         else:
             print("Invalid input ")
 
